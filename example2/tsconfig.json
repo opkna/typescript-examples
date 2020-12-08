@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+        "outDir": "dist",
+        "declaration": true,
+        "declarationDir": "types",
+        "removeComments": true,
+        "target": "ES3"
+    },
+    "include": ["src/**/*.ts"],
+    "exclude": ["node_modules"]
+}
