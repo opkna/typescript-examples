@@ -45,10 +45,39 @@ Now we can import a NodeJS module just as you do in JavaScript and TypeScript wi
 import * as os from "os";
 ```
 
-As you can see in `src/system_print.ts`, I have created a type called `PrintableValue`. This can be either a `string`, `number` or `boolean` value.
+## Configure TypeScript
 
-```ts
-type PrintableValue = string | number | boolean;
+This time we configure typescript with a file `tsconfig.json`:
+
+**tsconfig.json**
+
+```json
+{
+    "compilerOptions": {
+        "outDir": "dist",
+        "declaration": true,
+        "declarationDir": "types",
+        "removeComments": true,
+        "target": "ES3"
+    },
+    "include": ["src/**/*.ts"],
+    "exclude": ["node_modules"]
+}
 ```
 
-## Compiling & Running
+Most configurations are self explanatory. Some notewort configs are:
+
+-   `declaration`: Tell TypeScript that you want to output declaration files. This is so someone who want's to use this package can't get all types defined in your source code, even if it has been compiled to JavaScript
+-   `declarationDir`: Name of the folder to put all declaration files.
+-   `target`: What version of JavaScript you want your compiled code to be compatible with.
+
+Now when compiling your code. Just call `tsc` without any arguments. It will find the `tsconfig.json` file in your working directory.
+
+```json
+{
+    // ...
+    "scripts": {
+        "build": "tsc"
+    }
+}
+```
