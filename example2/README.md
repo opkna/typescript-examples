@@ -1,7 +1,5 @@
 # Example 2
 
-# Example 1
-
 A simple program that prints the cpu's on the system
 
 # Usage
